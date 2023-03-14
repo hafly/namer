@@ -14,14 +14,16 @@
         </a-radio-group>
       </div>
       <div style="padding:0 20px;">
-        <a-input-search
-            v-model:value="familyName"
-            placeholder="姓氏"
-            enter-button
-            :maxlength="2"
-            @search="onSearch"
-            style="width: 300px;"
-        />
+        <a-input-group compact>
+          <a-input
+              v-model:value="familyName"
+              placeholder="姓氏"
+              enter-button
+              :maxlength="2"
+              style="width: 250px;"
+          />
+          <a-button type="primary" @click="onSearch">起名</a-button>
+        </a-input-group>
       </div>
       <div>
         <ul class="result-container">
@@ -33,6 +35,7 @@
 </template>
 
 <script>
+import { message } from 'ant-design-vue';
 import Namer from "./Namer";
 import '@/assets/css/poem.less'
 
@@ -61,6 +64,10 @@ export default {
       });
     },
     onSearch() {
+      if (!this.familyName) {
+        message.warn('请输入姓氏');
+        return;
+      }
       this.nameList = [];
       for (let i = 0; i < this.nameAmount; i++) {
         const nameObj = this.namer.genName();

@@ -1,15 +1,11 @@
 @import "var";
 
-.poem-container{
+.poem-container {
   width: 60%;
   max-width: 800px;
   margin: 0 auto;
 }
-@media (max-width: 767px) {
-  .poem-container {
-    width: 100%;
-  }
-}
+
 .result-container {
   list-style-type: none;
   padding: 0;
@@ -58,6 +54,22 @@
       padding: 0 2px;
       font-size: 1.2rem;
       font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .poem-container {
+    width: 100%;
+  }
+
+  .result-container{
+    .name-box {
+      height: auto;
+
+      > h3 {
+        font-size: 2rem;
+      }
     }
   }
 }
