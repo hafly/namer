@@ -20,4 +20,5 @@ module.exports = defineConfig({
     ].filter(Boolean)
     config.plugins = [...config.plugins, ...plugins]
   },
+  publicPath: "/namer"
 })

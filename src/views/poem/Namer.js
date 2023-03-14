@@ -79,7 +79,7 @@ class Namer {
   }
 
   loadBook(book, cb) {
-    const url = `/json/${book}.json`;
+    const url = `./json/${book}.json`;
     fetch(url, { cache: 'force-cache' }).then(res => res.json()).then(data => {
       this.book = data;
       if (typeof cb === 'function') {
